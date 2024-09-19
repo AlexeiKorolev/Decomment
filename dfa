@@ -1,0 +1,32 @@
+NORMAL (accepting):
+ \': S_STR
+ \": D_STR
+ / : HALF_IN_COMMENT
+ other: NORMAL
+
+HALF_IN_COMMENT (accepting):
+ * : IN_COMMENT
+ \": D_STR
+ \': S_STR
+ other: NORMAL
+
+IN_COMMENT (rejecting):
+ * : HALF_OUT_COMMENT
+
+HALF_OUT_COMMENT (rejecting):
+ / : NORMAL
+ other: IN_COMMENT
+
+D_STR (acceping):
+ \": NORMAL
+ \\: D_SPECIAL
+
+S_STR (acceping):
+ \': NORMAL
+ \\: S_SPECIAL
+
+D_SPECIAL (acceping):
+ other: D_STR
+
+S_SPECIAL (accepting):
+ other: S_STR
