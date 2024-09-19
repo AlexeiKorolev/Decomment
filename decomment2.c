@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 enum State {NORMAL, HALF_IN_COMMENT, IN_COMMENT, HALF_OUT_COMMENT,
    SPECIAL, S_STR, S_SPECIAL, D_STR, D_SPECIAL};
@@ -119,8 +120,8 @@ int main() {
     if (curState == HALF_IN_COMMENT) {printCharacter('/');}
     if (curState == IN_COMMENT || curState == HALF_OUT_COMMENT) {
        fprintf(stderr, "Error: line %d: unterminated comment\n", lastLineInComment);
-       return 1;
+       return EXIT_FAILURE;
     }
     
-    return 0;
+    return EXIT_SUCCESS;
 }

@@ -1,0 +1,5 @@
+NORMAL:
+ \': S_STR
+ \": D_STR
+ / : HALF_IN_COMMENT
+ 
